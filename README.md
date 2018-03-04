@@ -1,0 +1,1 @@
+Many people want to go to the gym but they require an economic incentive. This dapp will allow for users to decide on which gym they want to go and then submit a deposit. The deposits from all users will be pooled and will be split only amongst users who go to their gym session at the end of each week. The winnings can then be withdrawn back to user wallets.

@@ -1,0 +1,16 @@
+//Standardized with all web 3 instantiations
+import Web3 from 'web3';
+const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+
+//JSON.stringify(Greeter.abi) on console
+//Alternatively after deployment on any network can find on Etherscan
+//ABI: Application Binary Interface - encoding solidity contract calls for EVM and (backwards) reading data out of transactions
+var fitnethABI = [{"constant":true,"inputs":[],"name":"numPromisers","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"oracle","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"numWinners","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalWinnings","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"constant":false,"inputs":[{"name":"_oracle","type":"address"}],"name":"chooseOracle","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_gpsLocation","type":"string"}],"name":"makePromise","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_gpsLocation","type":"string"}],"name":"fulfilPromise","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"timeIsUp","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"withdrawAmount","type":"uint256"}],"name":"withdraw","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"checkGymLocation","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"checkOwnPromiseStatus","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"checkAllPromiseStatus","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"checkWinnings","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"contractReset","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+
+//Greeter.address on console
+var fitnethAddress = '0x654ed30fb8f5cf5931f6317420b7195b1e24ea57'
+
+//Looks for an ethereum contract which implements greeterABI
+const fitnethContract = web3.eth.contract(fitnethABI).at(fitnethAddress);
+
+export {fitnethContract};
